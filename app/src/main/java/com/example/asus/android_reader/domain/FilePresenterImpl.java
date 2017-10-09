@@ -20,7 +20,7 @@ public class FilePresenterImpl implements IFilePresenter, IBookLoader {
 
     ReadTextTask readTextTask;
     IFileDisplayer displayer;
-
+    private int numberCharactersInScreen;
 
     public FilePresenterImpl(IFileDisplayer displayer) {
         this.displayer = displayer;
@@ -36,19 +36,21 @@ public class FilePresenterImpl implements IFilePresenter, IBookLoader {
 
     }
 
+
     @Override
-    public Book getBookByName(String name, int numberOfCharsPerScreen) {
+    public Book getBookByName(String name, int numberCharactersInScreen) {
         Book book = new Book();
 
         String path = Environment.getExternalStorageDirectory().toString() + "/Download/" + name;
 
         readTextTask = new ReadTextTask(this);
-        readTextTask.setNumberOfCharsPerScreen(numberOfCharsPerScreen);
+        readTextTask.setNumberOfCharsPerScreen(numberCharactersInScreen);
         readTextTask.execute(path);
 
 
         return book;
     }
+
 
 
     public void listFilesForFolder(final File folder) {
