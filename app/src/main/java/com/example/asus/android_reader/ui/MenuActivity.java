@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.asus.android_reader.R;
 
@@ -34,7 +35,29 @@ public class MenuActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                navigationView.bringToFront();
+                navigationView.requestFocus();
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -84,12 +107,19 @@ public class MenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_library) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.read_book_fragment,new ReadListOfBooksFragment())
+                        .commit();
+
 
         } else if (id == R.id.nav_music) {
 
         } else if (id == R.id.nav_current_book) {
 
         } else if (id == R.id.nav_tools) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.read_book_fragment,new ConfigFragment())
+                    .commit();
 
         } else if (id == R.id.nav_share) {
 

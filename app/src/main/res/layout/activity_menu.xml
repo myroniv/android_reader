@@ -23,12 +23,12 @@
         app:headerLayout="@layout/nav_header_menu"
         app:menu="@menu/activity_menu_drawer" />
 
-    <fragment
-        android:name="com.example.asus.android_reader.ui.ReadListOfBooksFragment"
+    <FrameLayout
         android:layout_marginTop="55dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/read_book_fragment"
-        tools:layout="@layout/fragment_book_list"/>
+       ></FrameLayout>
+
 
 </android.support.v4.widget.DrawerLayout>

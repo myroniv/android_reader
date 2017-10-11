@@ -1,6 +1,5 @@
 package com.example.asus.android_reader.ui;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,16 +7,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.example.asus.android_reader.R;
-import com.example.asus.android_reader.domain.FilePresenterImpl;
 import com.example.asus.android_reader.domain.IFilePresenter;
 import com.example.asus.android_reader.domain.entities.Page;
-import com.example.asus.android_reader.utils.PageBuilder;
-
-import java.util.Random;
 
 /**
  * Created by Asus on 03.10.2017.
